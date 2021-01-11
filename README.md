@@ -1,6 +1,6 @@
-# Ruby on Rails チュートリアルのサンプルアプリケーション
+# Ruby on Rails お金管理アプリケーション
 
-これは、次の教材で作られたサンプルアプリケーションです。   
+これは、次の教材で作られたサンプルアプリケーションを参考に作成しています。   
 [*Ruby on Rails チュートリアル: 実例を使って Rails を学ぼう*](http://railstutorial.jp/)
 [Michael Hartl](http://www.michaelhartl.com/) 著
 
@@ -13,28 +13,46 @@ MIT ライセンスと Beerware ライセンスのもとに公開されていま
 ## 使い方
 
 このアプリケーションを動かす場合は、まずはリポジトリを手元にクローンしてください。
-その後、次のコマンドで必要になる RubyGems をインストールします。
+その後、Dockerを使って構築します。
 
+docker-compose.yml を元にコンテナに必要なイメージを構築
 ```
-$ bundle install --without production
-```
-
-その後、データベースへのマイグレーションを実行します。
-
-```
-$ rails db:migrate
+$ docker-compose build
 ```
 
-最後に、テストを実行してうまく動いているかどうか確認してください。
-
+構築したイメージを元にコンテナを構築して起動
 ```
-$ rails test
-```
-
-テストが無事に通ったら、Railsサーバーを立ち上げる準備が整っているはずです。
-
-```
-$ rails server
+$ docker-compose up -d
 ```
 
-詳しくは、[*Ruby on Rails チュートリアル*](http://railstutorial.jp/)を参考にしてください。
+コンテナ環境に入る
+```
+$ docker-compose exec app ash
+```
+
+データベース関係の準備
+```
+ash(コンテナ内)
+ $ rails db:create
+ $ rails db:migrate
+ $ rails db:seed
+```
+
+http://localhost:3000 にアクセス！！！
+
+
+# 一時停止
+```
+$ docker-compose stop
+```
+# 再起動
+```
+$ docker-compose start
+```
+# コンテナ削除
+```
+$ docker-compose down
+```
+詳しくは、
+・[*Ruby on Rails チュートリアル*](http://railstutorial.jp/)
+・(https://qiita.com/Moo_Moo_Farm/items/0d08da27371272ed1390)を参考にしてください。
