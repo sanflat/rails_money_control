@@ -21,19 +21,12 @@
 
 <% else %>
 
-<div class="center jumbotron">
-  <h1>Welcome to the Sample App</h1>
-
-  <h2>
-    This is the home page for the
-    <a href="http://railstutorial.jp/">Ruby on Rails Tutorial</a>
-    sample application.
-  </h2>
-
-  <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+<div class="center jumbotron text-center">
+    <%= link_to image_tag("pigg.svg", alt: "money_pigg logo")
+              %>
+    <% end %>
+    <h2></h2>
+    <div>
+      <%= link_to "今すぐサインアップ！", signup_path, class: "btn btn-lg btn-primary" %>
+    </div>
 </div>
-
-<%= link_to image_tag("rails.png", alt: "Rails logo"),
-            'http://rubyonrails.org/' %>
-            
-<% end %>          
