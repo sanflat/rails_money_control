@@ -1,4 +1,4 @@
-# Ruby on Rails お金管理アプリケーション
+# Ruby on Rails お金管理アプリケーション　※作成中
 
 <img width="1182" alt="スクリーンショット 2021-01-11 19 58 48" src="https://user-images.githubusercontent.com/76393333/104176362-727c6480-544a-11eb-80d1-a947c795ed2a.png">
 
